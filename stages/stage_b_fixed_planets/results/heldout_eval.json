@@ -1,0 +1,71 @@
+{
+  "stage": "B",
+  "champion": {
+    "version": 10,
+    "generation": 10,
+    "score": 0.5,
+    "kind": "heldout",
+    "obs_spec_hash": "16a7d04e",
+    "stage": "B"
+  },
+  "eval_sets": {
+    "eval_held_out": [
+      {
+        "layout_id": 10
+      },
+      {
+        "layout_id": 11
+      }
+    ]
+  },
+  "episodes_per_mode": 48,
+  "by_set": {
+    "eval_held_out": {
+      "sampled": {
+        "n": 48,
+        "success_rate": 0.4792,
+        "mean_reward": 38.5706,
+        "mean_min_portal_dist": 0.4995,
+        "terminations": {
+          "collision": 4,
+          "portal": 23,
+          "timeout": 21
+        },
+        "failed": 0
+      },
+      "greedy": {
+        "n": 48,
+        "success_rate": 0.0,
+        "mean_reward": -43.7497,
+        "mean_min_portal_dist": 0.9241,
+        "terminations": {
+          "timeout": 48
+        },
+        "failed": 0
+      }
+    }
+  },
+  "sampled": {
+    "n": 48,
+    "success_rate": 0.4792,
+    "mean_reward": 38.5706,
+    "mean_min_portal_dist": 0.4995,
+    "terminations": {
+      "collision": 4,
+      "portal": 23,
+      "timeout": 21
+    },
+    "failed": 0
+  },
+  "greedy": {
+    "n": 48,
+    "success_rate": 0.0,
+    "mean_reward": -43.7497,
+    "mean_min_portal_dist": 0.9241,
+    "terminations": {
+      "timeout": 48
+    },
+    "failed": 0
+  },
+  "primary_set": "eval_held_out"
+}

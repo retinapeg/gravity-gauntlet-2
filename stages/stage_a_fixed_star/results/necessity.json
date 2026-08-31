@@ -1,0 +1,456 @@
+{
+  "stage": "A",
+  "obs_spec_hash": "16a7d04e",
+  "champion": {
+    "version": 100,
+    "generation": 100,
+    "score": 0.875,
+    "kind": "heldout",
+    "obs_spec_hash": "16a7d04e",
+    "stage": "A"
+  },
+  "repeats": 3,
+  "episodes_per_arm": 16,
+  "wallclock_s": 118.7,
+  "baseline": {
+    "return": 81.8897,
+    "success": 0.875,
+    "min_portal_dist": 0.3612
+  },
+  "groups": {
+    "portal_rel_pos": {
+      "m1_gate": 0.86993,
+      "m2_delta_return_zeroed": 38.9901,
+      "m2_delta_return_resampled": 16.677,
+      "m2_delta_success_zeroed": 0.2917,
+      "m3_saliency": 0.38423,
+      "verdict": "necessary",
+      "corroborated_by_resampling": true
+    },
+    "craft_vel": {
+      "m1_gate": 0.88331,
+      "m2_delta_return_zeroed": -2.7378,
+      "m2_delta_return_resampled": 2.8207,
+      "m2_delta_success_zeroed": -0.0208,
+      "m3_saliency": 0.3984,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "speed": {
+      "m1_gate": 0.86696,
+      "m2_delta_return_zeroed": 11.1409,
+      "m2_delta_return_resampled": 0.0039,
+      "m2_delta_success_zeroed": 0.0833,
+      "m3_saliency": 0.12775,
+      "verdict": "marginal",
+      "corroborated_by_resampling": false
+    },
+    "closing_speed_portal": {
+      "m1_gate": 0.86154,
+      "m2_delta_return_zeroed": 19.5182,
+      "m2_delta_return_resampled": 8.3607,
+      "m2_delta_success_zeroed": 0.1458,
+      "m3_saliency": 0.04473,
+      "verdict": "necessary",
+      "corroborated_by_resampling": true
+    },
+    "bearing_error": {
+      "m1_gate": 0.82289,
+      "m2_delta_return_zeroed": 0.0283,
+      "m2_delta_return_resampled": 2.8123,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.23658,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "a_grav": {
+      "m1_gate": 0.87138,
+      "m2_delta_return_zeroed": 0.0021,
+      "m2_delta_return_resampled": 0.019,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.16525,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "a_grav_magdir": {
+      "m1_gate": 0.88204,
+      "m2_delta_return_zeroed": 11.0579,
+      "m2_delta_return_resampled": 8.3346,
+      "m2_delta_success_zeroed": 0.0833,
+      "m3_saliency": 0.25992,
+      "verdict": "marginal",
+      "corroborated_by_resampling": true
+    },
+    "potential": {
+      "m1_gate": 0.86549,
+      "m2_delta_return_zeroed": 8.3361,
+      "m2_delta_return_resampled": 2.781,
+      "m2_delta_success_zeroed": 0.0625,
+      "m3_saliency": 0.06507,
+      "verdict": "marginal",
+      "corroborated_by_resampling": true
+    },
+    "fuel_fraction": {
+      "m1_gate": 0.89218,
+      "m2_delta_return_zeroed": 16.771,
+      "m2_delta_return_resampled": 5.6032,
+      "m2_delta_success_zeroed": 0.125,
+      "m3_saliency": 0.7282,
+      "verdict": "necessary",
+      "corroborated_by_resampling": true
+    },
+    "craft_mass": {
+      "m1_gate": 0.83487,
+      "m2_delta_return_zeroed": -5.5442,
+      "m2_delta_return_resampled": 0.0,
+      "m2_delta_success_zeroed": -0.0417,
+      "m3_saliency": 0.18555,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "control_authority": {
+      "m1_gate": 0.84202,
+      "m2_delta_return_zeroed": -0.033,
+      "m2_delta_return_resampled": 0.0,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.03435,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "time_fraction": {
+      "m1_gate": 0.89928,
+      "m2_delta_return_zeroed": 22.4449,
+      "m2_delta_return_resampled": 2.8638,
+      "m2_delta_success_zeroed": 0.1667,
+      "m3_saliency": 1.0,
+      "verdict": "necessary",
+      "corroborated_by_resampling": false
+    },
+    "orbital_energy": {
+      "m1_gate": 0.83341,
+      "m2_delta_return_zeroed": 8.3641,
+      "m2_delta_return_resampled": 0.0123,
+      "m2_delta_success_zeroed": 0.0625,
+      "m3_saliency": 0.16376,
+      "verdict": "marginal",
+      "corroborated_by_resampling": false
+    },
+    "angular_momentum": {
+      "m1_gate": 0.85641,
+      "m2_delta_return_zeroed": -0.0132,
+      "m2_delta_return_resampled": 0.0046,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.08231,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "eccentricity_vec": {
+      "m1_gate": 0.83971,
+      "m2_delta_return_zeroed": -0.0107,
+      "m2_delta_return_resampled": 8.3569,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.33307,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    }
+  },
+  "per_group_raw": {
+    "portal_rel_pos": {
+      "delta_return_zeroed": 38.9901,
+      "delta_return_resampled": 16.677,
+      "delta_success_zeroed": 0.2917,
+      "delta_portal_dist_zeroed": 0.0165,
+      "delta_portal_dist_resampled": 0.0032,
+      "return_zeroed_by_repeat": [
+        48.472,
+        40.128,
+        40.099
+      ],
+      "return_zeroed_spread": 3.94
+    },
+    "craft_vel": {
+      "delta_return_zeroed": -2.7378,
+      "delta_return_resampled": 2.8207,
+      "delta_success_zeroed": -0.0208,
+      "delta_portal_dist_zeroed": -0.0028,
+      "delta_portal_dist_resampled": -0.003,
+      "return_zeroed_by_repeat": [
+        98.535,
+        73.531,
+        81.816
+      ],
+      "return_zeroed_spread": 10.4
+    },
+    "speed": {
+      "delta_return_zeroed": 11.1409,
+      "delta_return_resampled": 0.0039,
+      "delta_success_zeroed": 0.0833,
+      "delta_portal_dist_zeroed": -0.0054,
+      "delta_portal_dist_resampled": -0.001,
+      "return_zeroed_by_repeat": [
+        73.55,
+        73.529,
+        65.168
+      ],
+      "return_zeroed_spread": 3.946
+    },
+    "closing_speed_portal": {
+      "delta_return_zeroed": 19.5182,
+      "delta_return_resampled": 8.3607,
+      "delta_success_zeroed": 0.1458,
+      "delta_portal_dist_zeroed": 0.0049,
+      "delta_portal_dist_resampled": 0.0016,
+      "return_zeroed_by_repeat": [
+        73.539,
+        56.797,
+        56.778
+      ],
+      "return_zeroed_spread": 7.897
+    },
+    "bearing_error": {
+      "delta_return_zeroed": 0.0283,
+      "delta_return_resampled": 2.8123,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": -0.0006,
+      "delta_portal_dist_resampled": -0.0012,
+      "return_zeroed_by_repeat": [
+        90.261,
+        81.841,
+        73.483
+      ],
+      "return_zeroed_spread": 6.849
+    },
+    "a_grav": {
+      "delta_return_zeroed": 0.0021,
+      "delta_return_resampled": 0.019,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": -0.0018,
+      "delta_portal_dist_resampled": -0.0003,
+      "return_zeroed_by_repeat": [
+        90.28,
+        81.867,
+        73.516
+      ],
+      "return_zeroed_spread": 6.844
+    },
+    "a_grav_magdir": {
+      "delta_return_zeroed": 11.0579,
+      "delta_return_resampled": 8.3346,
+      "delta_success_zeroed": 0.0833,
+      "delta_portal_dist_zeroed": -0.0049,
+      "delta_portal_dist_resampled": 0.0008,
+      "return_zeroed_by_repeat": [
+        73.621,
+        73.614,
+        65.26
+      ],
+      "return_zeroed_spread": 3.94
+    },
+    "potential": {
+      "delta_return_zeroed": 8.3361,
+      "delta_return_resampled": 2.781,
+      "delta_success_zeroed": 0.0625,
+      "delta_portal_dist_zeroed": -0.0015,
+      "delta_portal_dist_resampled": -0.0008,
+      "return_zeroed_by_repeat": [
+        73.582,
+        81.894,
+        65.185
+      ],
+      "return_zeroed_spread": 6.821
+    },
+    "fuel_fraction": {
+      "delta_return_zeroed": 16.771,
+      "delta_return_resampled": 5.6032,
+      "delta_success_zeroed": 0.125,
+      "delta_portal_dist_zeroed": 0.0255,
+      "delta_portal_dist_resampled": -0.0012,
+      "return_zeroed_by_repeat": [
+        48.528,
+        81.68,
+        65.149
+      ],
+      "return_zeroed_spread": 13.534
+    },
+    "craft_mass": {
+      "delta_return_zeroed": -5.5442,
+      "delta_return_resampled": 0.0,
+      "delta_success_zeroed": -0.0417,
+      "delta_portal_dist_zeroed": -0.0056,
+      "delta_portal_dist_resampled": 0.0,
+      "return_zeroed_by_repeat": [
+        98.556,
+        81.889,
+        81.857
+      ],
+      "return_zeroed_spread": 7.865
+    },
+    "control_authority": {
+      "delta_return_zeroed": -0.033,
+      "delta_return_resampled": 0.0,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": -0.0033,
+      "delta_portal_dist_resampled": 0.0,
+      "return_zeroed_by_repeat": [
+        90.313,
+        81.914,
+        73.541
+      ],
+      "return_zeroed_spread": 6.847
+    },
+    "time_fraction": {
+      "delta_return_zeroed": 22.4449,
+      "delta_return_resampled": 2.8638,
+      "delta_success_zeroed": 0.1667,
+      "delta_portal_dist_zeroed": -0.0008,
+      "delta_portal_dist_resampled": -0.0012,
+      "return_zeroed_by_repeat": [
+        56.656,
+        65.039,
+        56.64
+      ],
+      "return_zeroed_spread": 3.956
+    },
+    "orbital_energy": {
+      "delta_return_zeroed": 8.3641,
+      "delta_return_resampled": 0.0123,
+      "delta_success_zeroed": 0.0625,
+      "delta_portal_dist_zeroed": -0.0011,
+      "delta_portal_dist_resampled": -0.0011,
+      "return_zeroed_by_repeat": [
+        81.906,
+        65.169,
+        73.502
+      ],
+      "return_zeroed_spread": 6.833
+    },
+    "angular_momentum": {
+      "delta_return_zeroed": -0.0132,
+      "delta_return_resampled": 0.0046,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": -0.0027,
+      "delta_portal_dist_resampled": -0.0012,
+      "return_zeroed_by_repeat": [
+        90.303,
+        81.88,
+        73.526
+      ],
+      "return_zeroed_spread": 6.849
+    },
+    "eccentricity_vec": {
+      "delta_return_zeroed": -0.0107,
+      "delta_return_resampled": 8.3569,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": -0.0027,
+      "delta_portal_dist_resampled": -0.0015,
+      "return_zeroed_by_repeat": [
+        90.286,
+        81.878,
+        73.537
+      ],
+      "return_zeroed_spread": 6.838
+    }
+  },
+  "ranking_by_m2": [
+    "portal_rel_pos",
+    "time_fraction",
+    "closing_speed_portal",
+    "fuel_fraction",
+    "speed",
+    "a_grav_magdir",
+    "orbital_energy",
+    "potential",
+    "bearing_error",
+    "a_grav",
+    "eccentricity_vec",
+    "angular_momentum",
+    "control_authority",
+    "craft_vel",
+    "craft_mass"
+  ],
+  "ranking_by_portal_dist": [
+    "fuel_fraction",
+    "portal_rel_pos",
+    "closing_speed_portal",
+    "bearing_error",
+    "time_fraction",
+    "orbital_energy",
+    "potential",
+    "a_grav",
+    "angular_momentum",
+    "eccentricity_vec",
+    "craft_vel",
+    "control_authority",
+    "a_grav_magdir",
+    "speed",
+    "craft_mass"
+  ],
+  "ranking_per_repeat": [
+    [
+      "portal_rel_pos",
+      "fuel_fraction",
+      "time_fraction",
+      "closing_speed_portal",
+      "speed",
+      "potential",
+      "a_grav_magdir",
+      "orbital_energy",
+      "bearing_error",
+      "a_grav",
+      "eccentricity_vec",
+      "angular_momentum",
+      "control_authority",
+      "craft_vel",
+      "craft_mass"
+    ],
+    [
+      "portal_rel_pos",
+      "closing_speed_portal",
+      "time_fraction",
+      "orbital_energy",
+      "speed",
+      "craft_vel",
+      "a_grav_magdir",
+      "fuel_fraction",
+      "bearing_error",
+      "a_grav",
+      "eccentricity_vec",
+      "angular_momentum",
+      "craft_mass",
+      "potential",
+      "control_authority"
+    ],
+    [
+      "portal_rel_pos",
+      "time_fraction",
+      "closing_speed_portal",
+      "fuel_fraction",
+      "speed",
+      "potential",
+      "a_grav_magdir",
+      "bearing_error",
+      "orbital_energy",
+      "a_grav",
+      "angular_momentum",
+      "eccentricity_vec",
+      "control_authority",
+      "craft_vel",
+      "craft_mass"
+    ]
+  ],
+  "stability": {
+    "pairs": 3,
+    "min_spearman": 0.5964,
+    "mean_spearman": 0.7452,
+    "stable": false
+  },
+  "stability_portal_dist": {
+    "pairs": 3,
+    "min_spearman": 0.3036,
+    "mean_spearman": 0.406,
+    "stable": false
+  },
+  "warning": null,
+  "m4_nested": null,
+  "resampling_note": "`corroborated_by_resampling` cross-checks each verdict against the in-distribution resampled arm; where false, the zeroed-arm verdict is out-of-distribution shock."
+}

@@ -1,0 +1,143 @@
+{
+  "stage": "D",
+  "champion": {
+    "version": 10,
+    "generation": 10,
+    "score": 0.0,
+    "kind": "heldout",
+    "obs_spec_hash": "16a7d04e",
+    "stage": "D"
+  },
+  "eval_sets": {
+    "eval_held_out": [
+      {
+        "seed_universe": 900000
+      },
+      {
+        "seed_universe": 900001
+      },
+      {
+        "seed_universe": 900002
+      },
+      {
+        "seed_universe": 900003
+      },
+      {
+        "seed_universe": 900004
+      },
+      {
+        "seed_universe": 900005
+      },
+      {
+        "seed_universe": 900006
+      },
+      {
+        "seed_universe": 900007
+      },
+      {
+        "seed_universe": 900008
+      },
+      {
+        "seed_universe": 900009
+      },
+      {
+        "seed_universe": 900010
+      },
+      {
+        "seed_universe": 900011
+      },
+      {
+        "seed_universe": 900012
+      },
+      {
+        "seed_universe": 900013
+      },
+      {
+        "seed_universe": 900014
+      },
+      {
+        "seed_universe": 900015
+      },
+      {
+        "seed_universe": 900016
+      },
+      {
+        "seed_universe": 900017
+      },
+      {
+        "seed_universe": 900018
+      },
+      {
+        "seed_universe": 900019
+      },
+      {
+        "seed_universe": 900020
+      },
+      {
+        "seed_universe": 900021
+      },
+      {
+        "seed_universe": 900022
+      },
+      {
+        "seed_universe": 900023
+      }
+    ]
+  },
+  "episodes_per_mode": 48,
+  "by_set": {
+    "eval_held_out": {
+      "sampled": {
+        "n": 48,
+        "success_rate": 0.0417,
+        "mean_reward": -64.5628,
+        "mean_min_portal_dist": 1.6285,
+        "terminations": {
+          "collision": 25,
+          "portal": 2,
+          "timeout": 21
+        },
+        "failed": 0
+      },
+      "greedy": {
+        "n": 48,
+        "success_rate": 0.0417,
+        "mean_reward": -53.2813,
+        "mean_min_portal_dist": 1.8342,
+        "terminations": {
+          "collision": 15,
+          "escape": 6,
+          "portal": 2,
+          "timeout": 25
+        },
+        "failed": 0
+      }
+    }
+  },
+  "sampled": {
+    "n": 48,
+    "success_rate": 0.0417,
+    "mean_reward": -64.5628,
+    "mean_min_portal_dist": 1.6285,
+    "terminations": {
+      "collision": 25,
+      "portal": 2,
+      "timeout": 21
+    },
+    "failed": 0
+  },
+  "greedy": {
+    "n": 48,
+    "success_rate": 0.0417,
+    "mean_reward": -53.2813,
+    "mean_min_portal_dist": 1.8342,
+    "terminations": {
+      "collision": 15,
+      "escape": 6,
+      "portal": 2,
+      "timeout": 25
+    },
+    "failed": 0
+  },
+  "primary_set": "eval_held_out"
+}

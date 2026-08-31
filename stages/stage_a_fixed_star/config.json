@@ -1,0 +1,56 @@
+{
+  "_comment": "Stage A parameters. Shaped like the worker input contract (plan.md 4.2) so controller/rollout.py can splice this straight into GG_INPUT alongside the policy weights.",
+  "stage": "A",
+  "dims": 2,
+  "deterministic": true,
+  "episode": {
+    "max_steps": 500,
+    "dt": 0.02,
+    "gamma": 0.99,
+    "softening_eps": 0.05
+  },
+  "noise": {
+    "process_sigma": 0.0,
+    "thrust_jitter": 0.0,
+    "obs_sigma": 0.0
+  },
+  "policy": {
+    "kind": "scripted_pursuit",
+    "action_space": 9,
+    "hidden": [
+      64,
+      64
+    ],
+    "input_gate": true,
+    "gate_l1": 0.001
+  },
+  "training": {
+    "sandboxes_per_generation": 8,
+    "generations": 200,
+    "lr": 0.008,
+    "grad_clip": 1.0,
+    "entropy_beta_start": 0.01,
+    "entropy_beta_end": 0.0001,
+    "min_successful_rollouts_frac": 0.5,
+    "warm_start_from": null,
+    "lr_final_frac": 1.0,
+    "value_coef": 0.5
+  },
+  "necessity": {
+    "methods": [
+      "M1_gate",
+      "M2_ablation",
+      "M3_saliency",
+      "M4_nested"
+    ],
+    "eval_repeats": 3,
+    "nested_sets": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "_tuning_note": "Measured, not guessed. plan.md 3.3 suggests lr 3e-4 and beta 0.01->0.001 for a 25-40 generation demo; at Stage A that leaves the policy near-uniform (entropy stays at log(9)=2.197) because the final layer starts at 0.01 scale and 30 Adam steps of 3e-4 cannot grow it. lr 8e-3 with linear decay to 10% learns inside ~100 generations. beta_end is dropped to 1e-4 because a 1e-3 floor holds entropy near 1.5-1.9 and the sampled and argmax policies then disagree completely - one run reached 100% greedy success with 0% sampled, another the reverse. Driving beta lower lets the policy commit so the two agree. value_coef turns on the fitted V(o) baseline that plan.md 3.2 step 5 offers 'if variance is high': at Stage A every sandbox flies the same universe, so returns vary far more along t than across the batch and a batch-mean baseline leaves the advantage encoding little but elapsed time. lr_final_frac is 1.0 (NO decay): decaying to 10% was tried and starved the run - at generation 80 of 200 the effective lr was ~5e-3 and entropy had moved only 2.20->1.95 with zero captures, where the constant-lr config was already succeeding. At this generation budget the run ends before decay can pay for itself."
+}

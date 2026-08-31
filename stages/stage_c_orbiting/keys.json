@@ -1,0 +1,37 @@
+{
+  "_comment": "Stage C keys are (layout_id, orbital_phase). A generation dispatches 8 DISTINCT pairs (plan.md 7.1) - this is the demo grid. Two held-out axes: unseen LAYOUTS (10, 11, inherited from Stage B) and unseen PHASES on training layouts. Report both separately: a policy that generalises across phase but not across layout has learned the choreography, not the physics.",
+
+  "key_shape": {"layout_id": "int 0..11", "orbital_phase": "float [0, 1)"},
+
+  "dispatch": {
+    "per_generation": 8,
+    "rule": "sample 8 distinct layout_ids from `train`, each with a freshly sampled orbital_phase",
+    "base_seed": "one base seed per generation; episode seed = base_seed + worker_id, which also seeds action sampling",
+    "note": "Phase is resampled every generation even for a repeated layout, so no world is ever seen twice identically."
+  },
+
+  "train": [
+    {"layout_id": 0, "orbital_phase": "sampled"},
+    {"layout_id": 1, "orbital_phase": "sampled"},
+    {"layout_id": 2, "orbital_phase": "sampled"},
+    {"layout_id": 3, "orbital_phase": "sampled"},
+    {"layout_id": 4, "orbital_phase": "sampled"},
+    {"layout_id": 5, "orbital_phase": "sampled"},
+    {"layout_id": 6, "orbital_phase": "sampled"},
+    {"layout_id": 7, "orbital_phase": "sampled"},
+    {"layout_id": 8, "orbital_phase": "sampled"},
+    {"layout_id": 9, "orbital_phase": "sampled"}
+  ],
+
+  "eval_held_out_phase": [
+    {"layout_id": 0, "orbital_phase": 0.07},
+    {"layout_id": 2, "orbital_phase": 0.29},
+    {"layout_id": 5, "orbital_phase": 0.53},
+    {"layout_id": 7, "orbital_phase": 0.81}
+  ],
+
+  "eval_held_out_layout": [
+    {"layout_id": 10, "orbital_phase": 0.17},
+    {"layout_id": 11, "orbital_phase": 0.62}
+  ]
+}

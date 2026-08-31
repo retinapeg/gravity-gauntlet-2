@@ -1,0 +1,62 @@
+{
+  "_comment": "Stage B = Stage A plus stationary planets. Only `stage`, the newly live obs groups, and the warm-start pointer differ from stage A's config - everything else is deliberately identical so the two rungs are comparable.",
+  "stage": "B",
+  "dims": 2,
+  "deterministic": true,
+  "episode": {
+    "max_steps": 500,
+    "dt": 0.02,
+    "gamma": 0.99,
+    "softening_eps": 0.05
+  },
+  "noise": {
+    "process_sigma": 0.0,
+    "thrust_jitter": 0.0,
+    "obs_sigma": 0.0
+  },
+  "newly_live_obs_groups": [
+    "nearest_body",
+    "body_count",
+    "perbody_topk"
+  ],
+  "policy": {
+    "kind": "mlp",
+    "action_space": 9,
+    "hidden": [
+      64,
+      64
+    ],
+    "input_gate": true,
+    "gate_l1": 0.001
+  },
+  "training": {
+    "sandboxes_per_generation": 8,
+    "generations": 150,
+    "lr": 0.004,
+    "grad_clip": 1.0,
+    "entropy_beta_start": 0.002,
+    "entropy_beta_end": 0.0001,
+    "min_successful_rollouts_frac": 0.5,
+    "warm_start_from": "stages/stage_a_fixed_star/results/champion.npz",
+    "lr_final_frac": 1.0,
+    "value_coef": 0.5
+  },
+  "necessity": {
+    "methods": [
+      "M1_gate",
+      "M2_ablation",
+      "M3_saliency",
+      "M4_nested"
+    ],
+    "eval_repeats": 3,
+    "nested_sets": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "compare_against": "stages/stage_a_fixed_star/results/necessity.json"
+  },
+  "_tuning_note": "Hyperparameters carried over from Stage A, where they were measured rather than guessed (see that stage's config). Warm-started from the Stage A champion so the trunk keeps what it already knows and this rung only has to learn what its new complication adds - which is also what makes the necessity DELTA vs column A the meaningful number rather than the raw column. A WARM-STARTED rung must not be trained like a cold one. The first attempt here reused Stage A's schedule (lr 8e-3, beta_start 1e-2) and actively destroyed the transfer: generation 1 inherited 50% success and generation 30 was back to 0%. Both terms were doing it - beta_start 1e-2 re-injects full exploration into a policy that has already finished exploring and pushes its entropy back toward uniform, and a from-scratch lr moves a converged trunk too far per step. Halved the lr and started beta near its floor, which is what 'warm start' should have meant in the first place. Two further findings from the first Stage B runs. (1) A warm start across a rung that switches new observation groups on is not actually warm: those groups were zero-filled on every earlier rung, so their W1 rows never took a gradient and are still random init - 14 of 38 input dims at Stage B, at the same magnitude as the trained ones. controller/train.py::quiet_new_inputs zeroes them so the inherited policy behaves exactly as it did on the previous rung. MEASURED: this changed generation-1 success by less than noise (0.467 -> 0.433), so it is correct in principle but was NOT the cause of the failure. (2) The actual cause: from Stage B a batch spans several layouts whose returns differ by the full +/-100 goal bonus, so a batch-wide advantage baseline mostly encodes which layout was drawn rather than whether the action was good - the same pathology the value head fixes for elapsed time at Stage A, one level up. Centring returns per key recovered the run from 0.03 success to ~0.4."
+}

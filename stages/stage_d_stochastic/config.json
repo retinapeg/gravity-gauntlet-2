@@ -1,0 +1,77 @@
+{
+  "_comment": "Stage D = per-seed universe generation (S1) + process noise (S2). The first STOCHASTIC rung and the first where a policy cannot succeed by exploiting one particular world. Observation vector unchanged - what changes is which components matter (plan.md 5).",
+  "stage": "D",
+  "dims": 2,
+  "deterministic": false,
+  "episode": {
+    "max_steps": 500,
+    "dt": 0.02,
+    "gamma": 0.99,
+    "softening_eps": 0.05
+  },
+  "noise": {
+    "process_sigma": 0.002,
+    "thrust_jitter": 0.03,
+    "pointing_sigma": 0.05,
+    "obs_sigma": 0.0,
+    "_comment": "S2 only. process_sigma is a per-step velocity impulse - over 500 steps that is a random walk of about sqrt(500)*0.002 = 0.045, set against v_capture 0.6, so it is felt at the capture gate without swamping it. thrust_jitter 0.03 is the misfire from plan.md 2.6. S3 observation noise stays OFF until Stage F."
+  },
+  "newly_live_obs_groups": [],
+  "_obs_note": "None. The vector is unchanged from Stage C - control_authority and fuel_fraction have been present and unnecessary since Stage A, and the PREDICTION for this rung is that robustness promotes them. That is the whole point of freezing the superset.",
+  "dispatch": {
+    "keys_per_generation": 8,
+    "distinct_keys": true,
+    "repeat_across_batch": true,
+    "_comment": "8 distinct WORLDS per generation, each flown 4 times to fill a 32-episode batch. The repeat is what gives Trainer.update a real per-world baseline; without it every episode is a different universe seen once and the advantage mostly encodes which draw was easy. Eight distinct worlds still means eight visibly different sandboxes."
+  },
+  "policy": {
+    "kind": "mlp",
+    "action_space": 9,
+    "hidden": [
+      64,
+      64
+    ],
+    "input_gate": true,
+    "gate_l1": 0.001
+  },
+  "training": {
+    "sandboxes_per_generation": 8,
+    "generations": 60,
+    "lr": 0.0003,
+    "grad_clip": 1.0,
+    "entropy_beta_start": 0.002,
+    "entropy_beta_end": 0.0001,
+    "min_successful_rollouts_frac": 0.5,
+    "warm_start_from": "stages/stage_c_orbiting/results/champion.npz",
+    "lr_final_frac": 1.0,
+    "value_coef": 0.5,
+    "_tuning_note": "lr 1e-3 carried from Stage C, where 4e-3 was MEASURED to diverge on a warm start. Warm-started from the Stage C champion (held-out 0.83 phase / 0.96 layout), which is the first Stage C champion strong enough to be worth transferring - the pre-brake one scored 0.00 and would have transferred nothing.",
+    "curriculum_generations": 30,
+    "_curriculum_note": "MEASURED: warm-starting the Stage C champion straight into full randomisation sits at 0.04-0.08 held-out for 120 generations with NO trend - closest approach stays at ~1.6, so the craft never even enters the braking basin (sigma ~1.05). The blocker is orientation: Stages A-C always ran the same craft->portal corridor, and several observation components (craft_vel, a_grav) are in the ABSOLUTE frame, so a rotated world is unrecognisable to that policy. The ramp therefore widens orientation alongside N and eccentricity - difficulty 0 is deliberately Stage-C-like - and reaches the full distribution by generation 90, leaving 60 generations on the real one. Held-out evaluation is ALWAYS pinned at difficulty 1.0.",
+    "_lr_note": "3e-4 is the best of a measured sweep (3e-4 -> 0.125, 1e-4 -> 0.042, 3e-5 -> 0.042 best held-out over 60 generations). Lower rates do NOT preserve the warm start: they freeze the policy at its transferred state, which is already poor at difficulty 1.0 (the Stage C champion scores 0.62 at difficulty 0 but 0.06 at difficulty 1.0). The large gradient norms seen at 1e-3 (3.6-4.0 against a 1.0 clip) are a symptom of the value head mispredicting on unseen worlds, not the root cause."
+  },
+  "necessity": {
+    "methods": [
+      "M1_gate",
+      "M2_ablation",
+      "M3_saliency",
+      "M4_nested"
+    ],
+    "eval_repeats": 3,
+    "nested_sets": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "compare_against": "stages/stage_c_orbiting/results/necessity.json"
+  },
+  "demo": {
+    "champion_world": {
+      "seed_universe": 900000
+    },
+    "fanout_worlds": 8,
+    "record_generations_to": "runs/generations/gen_{n}.json"
+  }
+}

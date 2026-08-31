@@ -1,0 +1,112 @@
+{
+  "stage": "C",
+  "champion": {
+    "version": 100,
+    "generation": 100,
+    "score": 1.0,
+    "kind": "heldout",
+    "obs_spec_hash": "16a7d04e",
+    "stage": "C"
+  },
+  "eval_sets": {
+    "eval_held_out_phase": [
+      {
+        "layout_id": 0,
+        "orbital_phase": 0.07
+      },
+      {
+        "layout_id": 2,
+        "orbital_phase": 0.29
+      },
+      {
+        "layout_id": 5,
+        "orbital_phase": 0.53
+      },
+      {
+        "layout_id": 7,
+        "orbital_phase": 0.81
+      }
+    ],
+    "eval_held_out_layout": [
+      {
+        "layout_id": 10,
+        "orbital_phase": 0.17
+      },
+      {
+        "layout_id": 11,
+        "orbital_phase": 0.62
+      }
+    ]
+  },
+  "episodes_per_mode": 48,
+  "by_set": {
+    "eval_held_out_phase": {
+      "sampled": {
+        "n": 48,
+        "success_rate": 0.8333,
+        "mean_reward": 126.606,
+        "mean_min_portal_dist": 0.3685,
+        "terminations": {
+          "portal": 40,
+          "timeout": 8
+        },
+        "failed": 0
+      },
+      "greedy": {
+        "n": 48,
+        "success_rate": 0.0,
+        "mean_reward": -36.646,
+        "mean_min_portal_dist": 1.2467,
+        "terminations": {
+          "timeout": 48
+        },
+        "failed": 0
+      }
+    },
+    "eval_held_out_layout": {
+      "sampled": {
+        "n": 48,
+        "success_rate": 0.9583,
+        "mean_reward": 147.2592,
+        "mean_min_portal_dist": 0.3479,
+        "terminations": {
+          "portal": 46,
+          "timeout": 2
+        },
+        "failed": 0
+      },
+      "greedy": {
+        "n": 48,
+        "success_rate": 0.0,
+        "mean_reward": -36.6669,
+        "mean_min_portal_dist": 1.2886,
+        "terminations": {
+          "timeout": 48
+        },
+        "failed": 0
+      }
+    }
+  },
+  "sampled": {
+    "n": 48,
+    "success_rate": 0.8333,
+    "mean_reward": 126.606,
+    "mean_min_portal_dist": 0.3685,
+    "terminations": {
+      "portal": 40,
+      "timeout": 8
+    },
+    "failed": 0
+  },
+  "greedy": {
+    "n": 48,
+    "success_rate": 0.0,
+    "mean_reward": -36.646,
+    "mean_min_portal_dist": 1.2467,
+    "terminations": {
+      "timeout": 48
+    },
+    "failed": 0
+  },
+  "primary_set": "eval_held_out_phase"
+}

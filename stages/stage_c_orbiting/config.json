@@ -1,0 +1,106 @@
+{
+  "_comment": "Stage C = Stage B with the planets orbiting. Demo endpoint. `orbital_phase` is sampled per rollout from `phase_sampling` below - that randomisation is what stops the policy memorising one choreography while the universe is still deterministic.",
+  "stage": "C",
+  "dims": 2,
+  "deterministic": true,
+  "episode": {
+    "max_steps": 500,
+    "dt": 0.02,
+    "gamma": 0.99,
+    "softening_eps": 0.05
+  },
+  "noise": {
+    "process_sigma": 0.0,
+    "thrust_jitter": 0.0,
+    "obs_sigma": 0.0
+  },
+  "newly_live_obs_groups": [
+    "tca_nearest",
+    "nearest_rel_vel",
+    "dphi_dt"
+  ],
+  "phase_sampling": {
+    "train_phases": "uniform on [0, 1)",
+    "eval_phases": [
+      0.07,
+      0.29,
+      0.53,
+      0.81
+    ]
+  },
+  "dispatch": {
+    "keys_per_generation": 8,
+    "distinct_keys": true,
+    "_comment": "8 DIFFERENT (layout_id, orbital_phase) pairs per generation - plan.md 7.1. This is what makes the demo grid show eight visibly different universes while every one stays exactly replayable."
+  },
+  "policy": {
+    "kind": "mlp",
+    "action_space": 9,
+    "hidden": [
+      64,
+      64
+    ],
+    "input_gate": true,
+    "gate_l1": 0.001
+  },
+  "training": {
+    "sandboxes_per_generation": 8,
+    "generations": 150,
+    "lr": 0.001,
+    "grad_clip": 1.0,
+    "entropy_beta_start": 0.002,
+    "entropy_beta_end": 0.0001,
+    "min_successful_rollouts_frac": 0.5,
+    "warm_start_from": "stages/stage_c_orbiting/results/pre_brake/champion.npz",
+    "lr_final_frac": 1.0,
+    "value_coef": 0.5,
+    "_brake_note": "lr lowered from 4e-3 to 0.001 together with the braking reward. Measured: at 4e-3 a warm start from the Stage C champion DIVERGES - closest approach drifts from 0.30 out to 1.70 in 40 generations and the craft stops approaching the portal at all. 1e-3 holds the inherited navigation (closest approach 0.09-0.15) while the brake term does its work.",
+    "_warm_note": "Continuing Stage C from its OWN pre-brake champion rather than from Stage B. That champion already solved navigation - 41/48 held-out episodes reached inside r_capture - and failed only the A7 speed gate, so it is the right trunk to teach braking to. Its lineage still runs through Stage B, so the ladder is intact. train.py detects the same-stage checkpoint and skips quiet_new_inputs, which would otherwise zero the very C groups this champion already trained."
+  },
+  "necessity": {
+    "methods": [
+      "M1_gate",
+      "M2_ablation",
+      "M3_saliency",
+      "M4_nested"
+    ],
+    "eval_repeats": 3,
+    "nested_sets": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "compare_against": "stages/stage_b_fixed_planets/results/necessity.json"
+  },
+  "demo": {
+    "champion_world": {
+      "layout_id": 0,
+      "orbital_phase": 0.0
+    },
+    "fanout_worlds": 8,
+    "learning_overlay_generations": [
+      1,
+      3,
+      6,
+      10,
+      14,
+      20
+    ],
+    "ghost_trails_kept": 5,
+    "playback_seconds": {
+      "card": [
+        4,
+        8
+      ],
+      "champion": [
+        6,
+        12
+      ]
+    },
+    "record_generations_to": "runs/generations/gen_{n}.json",
+    "_comment": "Playback timings and ghost-trail depth per web/UI_SPEC.md 6. Every generation is recorded as it completes, which is what makes replay mode free."
+  },
+  "_tuning_note": "Hyperparameters carried over from Stage A, where they were measured rather than guessed (see that stage's config). Warm-started from the Stage B champion so the trunk keeps what it already knows and this rung only has to learn what its new complication adds - which is also what makes the necessity DELTA vs column B the meaningful number rather than the raw column. A WARM-STARTED rung must not be trained like a cold one. The first attempt here reused Stage A's schedule (lr 8e-3, beta_start 1e-2) and actively destroyed the transfer: generation 1 inherited 50% success and generation 30 was back to 0%. Both terms were doing it - beta_start 1e-2 re-injects full exploration into a policy that has already finished exploring and pushes its entropy back toward uniform, and a from-scratch lr moves a converged trunk too far per step. Halved the lr and started beta near its floor, which is what 'warm start' should have meant in the first place. Two further findings from the first Stage B runs. (1) A warm start across a rung that switches new observation groups on is not actually warm: those groups were zero-filled on every earlier rung, so their W1 rows never took a gradient and are still random init - 14 of 38 input dims at Stage B, at the same magnitude as the trained ones. controller/train.py::quiet_new_inputs zeroes them so the inherited policy behaves exactly as it did on the previous rung. MEASURED: this changed generation-1 success by less than noise (0.467 -> 0.433), so it is correct in principle but was NOT the cause of the failure. (2) The actual cause: from Stage B a batch spans several layouts whose returns differ by the full +/-100 goal bonus, so a batch-wide advantage baseline mostly encodes which layout was drawn rather than whether the action was good - the same pathology the value head fixes for elapsed time at Stage A, one level up. Centring returns per key recovered the run from 0.03 success to ~0.4."
+}

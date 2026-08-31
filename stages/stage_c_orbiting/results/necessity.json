@@ -1,0 +1,837 @@
+{
+  "stage": "C",
+  "obs_spec_hash": "16a7d04e",
+  "champion": {
+    "version": 100,
+    "generation": 100,
+    "score": 1.0,
+    "kind": "heldout",
+    "obs_spec_hash": "16a7d04e",
+    "stage": "C"
+  },
+  "repeats": 3,
+  "episodes_per_arm": 16,
+  "wallclock_s": 431.1,
+  "baseline": {
+    "return": 134.135,
+    "success": 0.875,
+    "min_portal_dist": 0.3611
+  },
+  "groups": {
+    "portal_rel_pos": {
+      "m1_gate": 0.86619,
+      "m2_delta_return_zeroed": 3.8551,
+      "m2_delta_return_resampled": -0.5842,
+      "m2_delta_success_zeroed": -0.0208,
+      "m3_saliency": 0.28004,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "craft_vel": {
+      "m1_gate": 0.88565,
+      "m2_delta_return_zeroed": 51.2906,
+      "m2_delta_return_resampled": -4.4412,
+      "m2_delta_success_zeroed": 0.375,
+      "m3_saliency": 0.4769,
+      "verdict": "necessary",
+      "corroborated_by_resampling": false
+    },
+    "speed": {
+      "m1_gate": 0.86466,
+      "m2_delta_return_zeroed": -2.344,
+      "m2_delta_return_resampled": 3.5305,
+      "m2_delta_success_zeroed": -0.0417,
+      "m3_saliency": 0.12721,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "closing_speed_portal": {
+      "m1_gate": 0.86762,
+      "m2_delta_return_zeroed": -5.8459,
+      "m2_delta_return_resampled": -4.0366,
+      "m2_delta_success_zeroed": -0.0208,
+      "m3_saliency": 0.16636,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "bearing_error": {
+      "m1_gate": 0.81565,
+      "m2_delta_return_zeroed": 2.9172,
+      "m2_delta_return_resampled": 2.8631,
+      "m2_delta_success_zeroed": 0.0208,
+      "m3_saliency": 0.10634,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "a_grav": {
+      "m1_gate": 0.86699,
+      "m2_delta_return_zeroed": 1.7143,
+      "m2_delta_return_resampled": 2.3736,
+      "m2_delta_success_zeroed": 0.0208,
+      "m3_saliency": 0.12015,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "a_grav_magdir": {
+      "m1_gate": 0.88571,
+      "m2_delta_return_zeroed": 5.5927,
+      "m2_delta_return_resampled": -4.0197,
+      "m2_delta_success_zeroed": -0.0208,
+      "m3_saliency": 0.4283,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "potential": {
+      "m1_gate": 0.86781,
+      "m2_delta_return_zeroed": 3.3858,
+      "m2_delta_return_resampled": 3.5952,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.12422,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "nearest_body": {
+      "m1_gate": 0.74417,
+      "m2_delta_return_zeroed": -3.6701,
+      "m2_delta_return_resampled": -3.3264,
+      "m2_delta_success_zeroed": -0.0417,
+      "m3_saliency": 0.03409,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "tca_nearest": {
+      "m1_gate": 0.73534,
+      "m2_delta_return_zeroed": 0.5395,
+      "m2_delta_return_resampled": 0.5395,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.0634,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "nearest_rel_vel": {
+      "m1_gate": 0.73641,
+      "m2_delta_return_zeroed": -1.5075,
+      "m2_delta_return_resampled": -3.3619,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.06257,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "dphi_dt": {
+      "m1_gate": 0.73759,
+      "m2_delta_return_zeroed": -0.0867,
+      "m2_delta_return_resampled": 2.7614,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.12446,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "body_count": {
+      "m1_gate": 0.74612,
+      "m2_delta_return_zeroed": 3.5532,
+      "m2_delta_return_resampled": 2.5571,
+      "m2_delta_success_zeroed": 0.0,
+      "m3_saliency": 0.02295,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "perbody_topk": {
+      "m1_gate": 0.73993,
+      "m2_delta_return_zeroed": -5.6688,
+      "m2_delta_return_resampled": 6.2443,
+      "m2_delta_success_zeroed": -0.0625,
+      "m3_saliency": 0.04431,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "fuel_fraction": {
+      "m1_gate": 0.89357,
+      "m2_delta_return_zeroed": 143.5592,
+      "m2_delta_return_resampled": -3.9509,
+      "m2_delta_success_zeroed": 0.7708,
+      "m3_saliency": 0.68296,
+      "verdict": "necessary",
+      "corroborated_by_resampling": false
+    },
+    "craft_mass": {
+      "m1_gate": 0.83026,
+      "m2_delta_return_zeroed": 5.9574,
+      "m2_delta_return_resampled": 0.0,
+      "m2_delta_success_zeroed": 0.1042,
+      "m3_saliency": 0.15876,
+      "verdict": "marginal",
+      "corroborated_by_resampling": true
+    },
+    "control_authority": {
+      "m1_gate": 0.841,
+      "m2_delta_return_zeroed": 2.8515,
+      "m2_delta_return_resampled": 0.09,
+      "m2_delta_success_zeroed": 0.0208,
+      "m3_saliency": 0.06381,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "time_fraction": {
+      "m1_gate": 0.89971,
+      "m2_delta_return_zeroed": -2.5266,
+      "m2_delta_return_resampled": -1.124,
+      "m2_delta_success_zeroed": -0.0625,
+      "m3_saliency": 1.0,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "orbital_energy": {
+      "m1_gate": 0.83331,
+      "m2_delta_return_zeroed": -0.7957,
+      "m2_delta_return_resampled": 3.0638,
+      "m2_delta_success_zeroed": 0.0208,
+      "m3_saliency": 0.1634,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    },
+    "angular_momentum": {
+      "m1_gate": 0.8634,
+      "m2_delta_return_zeroed": 4.888,
+      "m2_delta_return_resampled": -2.2436,
+      "m2_delta_success_zeroed": 0.0833,
+      "m3_saliency": 0.27785,
+      "verdict": "marginal",
+      "corroborated_by_resampling": true
+    },
+    "eccentricity_vec": {
+      "m1_gate": 0.8287,
+      "m2_delta_return_zeroed": 0.131,
+      "m2_delta_return_resampled": 4.9431,
+      "m2_delta_success_zeroed": 0.0208,
+      "m3_saliency": 0.15883,
+      "verdict": "unnecessary",
+      "corroborated_by_resampling": true
+    }
+  },
+  "per_group_raw": {
+    "portal_rel_pos": {
+      "delta_return_zeroed": 3.8551,
+      "delta_return_resampled": -0.5842,
+      "delta_success_zeroed": -0.0208,
+      "delta_portal_dist_zeroed": -0.0038,
+      "delta_portal_dist_resampled": -0.005,
+      "return_zeroed_by_repeat": [
+        138.815,
+        127.766,
+        124.258
+      ],
+      "return_zeroed_spread": 6.203
+    },
+    "craft_vel": {
+      "delta_return_zeroed": 51.2906,
+      "delta_return_resampled": -4.4412,
+      "delta_success_zeroed": 0.375,
+      "delta_portal_dist_zeroed": 0.1238,
+      "delta_portal_dist_resampled": -0.001,
+      "return_zeroed_by_repeat": [
+        56.689,
+        113.617,
+        78.227
+      ],
+      "return_zeroed_spread": 23.469
+    },
+    "speed": {
+      "delta_return_zeroed": -2.344,
+      "delta_return_resampled": 3.5305,
+      "delta_success_zeroed": -0.0417,
+      "delta_portal_dist_zeroed": -0.0038,
+      "delta_portal_dist_resampled": 0.0038,
+      "return_zeroed_by_repeat": [
+        140.799,
+        131.118,
+        137.52
+      ],
+      "return_zeroed_spread": 4.02
+    },
+    "closing_speed_portal": {
+      "delta_return_zeroed": -5.8459,
+      "delta_return_resampled": -4.0366,
+      "delta_success_zeroed": -0.0208,
+      "delta_portal_dist_zeroed": 0.003,
+      "delta_portal_dist_resampled": -0.0012,
+      "return_zeroed_by_repeat": [
+        145.003,
+        137.442,
+        137.498
+      ],
+      "return_zeroed_spread": 3.551
+    },
+    "bearing_error": {
+      "delta_return_zeroed": 2.9172,
+      "delta_return_resampled": 2.8631,
+      "delta_success_zeroed": 0.0208,
+      "delta_portal_dist_zeroed": 0.002,
+      "delta_portal_dist_resampled": 0.002,
+      "return_zeroed_by_repeat": [
+        143.823,
+        133.768,
+        116.063
+      ],
+      "return_zeroed_spread": 11.476
+    },
+    "a_grav": {
+      "delta_return_zeroed": 1.7143,
+      "delta_return_resampled": 2.3736,
+      "delta_success_zeroed": 0.0208,
+      "delta_portal_dist_zeroed": 0.0025,
+      "delta_portal_dist_resampled": 0.0015,
+      "return_zeroed_by_repeat": [
+        144.763,
+        136.052,
+        116.447
+      ],
+      "return_zeroed_spread": 11.842
+    },
+    "a_grav_magdir": {
+      "delta_return_zeroed": 5.5927,
+      "delta_return_resampled": -4.0197,
+      "delta_success_zeroed": -0.0208,
+      "delta_portal_dist_zeroed": -0.0058,
+      "delta_portal_dist_resampled": -0.0043,
+      "return_zeroed_by_repeat": [
+        134.75,
+        127.378,
+        123.499
+      ],
+      "return_zeroed_spread": 4.667
+    },
+    "potential": {
+      "delta_return_zeroed": 3.3858,
+      "delta_return_resampled": 3.5952,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": -0.0008,
+      "delta_portal_dist_resampled": 0.0029,
+      "return_zeroed_by_repeat": [
+        141.365,
+        130.953,
+        119.93
+      ],
+      "return_zeroed_spread": 8.752
+    },
+    "nearest_body": {
+      "delta_return_zeroed": -3.6701,
+      "delta_return_resampled": -3.3264,
+      "delta_success_zeroed": -0.0417,
+      "delta_portal_dist_zeroed": -0.0059,
+      "delta_portal_dist_resampled": 0.0001,
+      "return_zeroed_by_repeat": [
+        142.511,
+        132.428,
+        138.476
+      ],
+      "return_zeroed_spread": 4.144
+    },
+    "tca_nearest": {
+      "delta_return_zeroed": 0.5395,
+      "delta_return_resampled": 0.5395,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": 0.0001,
+      "delta_portal_dist_resampled": 0.0001,
+      "return_zeroed_by_repeat": [
+        144.447,
+        132.651,
+        123.688
+      ],
+      "return_zeroed_spread": 8.501
+    },
+    "nearest_rel_vel": {
+      "delta_return_zeroed": -1.5075,
+      "delta_return_resampled": -3.3619,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": 0.0027,
+      "delta_portal_dist_resampled": -0.001,
+      "return_zeroed_by_repeat": [
+        144.384,
+        136.187,
+        126.357
+      ],
+      "return_zeroed_spread": 7.369
+    },
+    "dphi_dt": {
+      "delta_return_zeroed": -0.0867,
+      "delta_return_resampled": 2.7614,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": -0.001,
+      "delta_portal_dist_resampled": -0.0011,
+      "return_zeroed_by_repeat": [
+        145.116,
+        133.935,
+        123.614
+      ],
+      "return_zeroed_spread": 8.78
+    },
+    "body_count": {
+      "delta_return_zeroed": 3.5532,
+      "delta_return_resampled": 2.5571,
+      "delta_success_zeroed": 0.0,
+      "delta_portal_dist_zeroed": -0.0043,
+      "delta_portal_dist_resampled": 0.0008,
+      "return_zeroed_by_repeat": [
+        142.228,
+        120.817,
+        128.7
+      ],
+      "return_zeroed_spread": 8.842
+    },
+    "perbody_topk": {
+      "delta_return_zeroed": -5.6688,
+      "delta_return_resampled": 6.2443,
+      "delta_success_zeroed": -0.0625,
+      "delta_portal_dist_zeroed": -0.0077,
+      "delta_portal_dist_resampled": 0.0024,
+      "return_zeroed_by_repeat": [
+        141.732,
+        140.335,
+        137.344
+      ],
+      "return_zeroed_spread": 1.831
+    },
+    "fuel_fraction": {
+      "delta_return_zeroed": 143.5592,
+      "delta_return_resampled": -3.9509,
+      "delta_success_zeroed": 0.7708,
+      "delta_portal_dist_zeroed": 0.4958,
+      "delta_portal_dist_resampled": 0.0002,
+      "return_zeroed_by_repeat": [
+        -10.582,
+        -18.17,
+        0.48
+      ],
+      "return_zeroed_spread": 7.658
+    },
+    "craft_mass": {
+      "delta_return_zeroed": 5.9574,
+      "delta_return_resampled": 0.0,
+      "delta_success_zeroed": 0.1042,
+      "delta_portal_dist_zeroed": 0.0276,
+      "delta_portal_dist_resampled": 0.0,
+      "return_zeroed_by_repeat": [
+        126.496,
+        153.506,
+        104.531
+      ],
+      "return_zeroed_spread": 20.029
+    },
+    "control_authority": {
+      "delta_return_zeroed": 2.8515,
+      "delta_return_resampled": 0.09,
+      "delta_success_zeroed": 0.0208,
+      "delta_portal_dist_zeroed": 0.0089,
+      "delta_portal_dist_resampled": -0.0002,
+      "return_zeroed_by_repeat": [
+        144.254,
+        135.39,
+        114.206
+      ],
+      "return_zeroed_spread": 12.606
+    },
+    "time_fraction": {
+      "delta_return_zeroed": -2.5266,
+      "delta_return_resampled": -1.124,
+      "delta_success_zeroed": -0.0625,
+      "delta_portal_dist_zeroed": -0.0072,
+      "delta_portal_dist_resampled": 0.0034,
+      "return_zeroed_by_repeat": [
+        136.545,
+        138.02,
+        135.42
+      ],
+      "return_zeroed_spread": 1.064
+    },
+    "orbital_energy": {
+      "delta_return_zeroed": -0.7957,
+      "delta_return_resampled": 3.0638,
+      "delta_success_zeroed": 0.0208,
+      "delta_portal_dist_zeroed": 0.0092,
+      "delta_portal_dist_resampled": -0.0008,
+      "return_zeroed_by_repeat": [
+        147.431,
+        137.456,
+        119.905
+      ],
+      "return_zeroed_spread": 11.378
+    },
+    "angular_momentum": {
+      "delta_return_zeroed": 4.888,
+      "delta_return_resampled": -2.2436,
+      "delta_success_zeroed": 0.0833,
+      "delta_portal_dist_zeroed": 0.0215,
+      "delta_portal_dist_resampled": -0.0056,
+      "return_zeroed_by_repeat": [
+        134.549,
+        139.966,
+        113.225
+      ],
+      "return_zeroed_spread": 11.543
+    },
+    "eccentricity_vec": {
+      "delta_return_zeroed": 0.131,
+      "delta_return_resampled": 4.9431,
+      "delta_success_zeroed": 0.0208,
+      "delta_portal_dist_zeroed": 0.0154,
+      "delta_portal_dist_resampled": 0.0037,
+      "return_zeroed_by_repeat": [
+        146.59,
+        138.702,
+        116.72
+      ],
+      "return_zeroed_spread": 12.639
+    }
+  },
+  "ranking_by_m2": [
+    "fuel_fraction",
+    "craft_vel",
+    "craft_mass",
+    "a_grav_magdir",
+    "angular_momentum",
+    "portal_rel_pos",
+    "body_count",
+    "potential",
+    "bearing_error",
+    "control_authority",
+    "a_grav",
+    "tca_nearest",
+    "eccentricity_vec",
+    "dphi_dt",
+    "orbital_energy",
+    "nearest_rel_vel",
+    "speed",
+    "time_fraction",
+    "nearest_body",
+    "perbody_topk",
+    "closing_speed_portal"
+  ],
+  "ranking_by_portal_dist": [
+    "fuel_fraction",
+    "craft_vel",
+    "craft_mass",
+    "angular_momentum",
+    "eccentricity_vec",
+    "orbital_energy",
+    "control_authority",
+    "closing_speed_portal",
+    "nearest_rel_vel",
+    "a_grav",
+    "bearing_error",
+    "tca_nearest",
+    "potential",
+    "dphi_dt",
+    "portal_rel_pos",
+    "speed",
+    "body_count",
+    "a_grav_magdir",
+    "nearest_body",
+    "time_fraction",
+    "perbody_topk"
+  ],
+  "ranking_per_repeat": [
+    [
+      "fuel_fraction",
+      "craft_vel",
+      "craft_mass",
+      "angular_momentum",
+      "a_grav_magdir",
+      "time_fraction",
+      "portal_rel_pos",
+      "speed",
+      "potential",
+      "perbody_topk",
+      "body_count",
+      "nearest_body",
+      "bearing_error",
+      "control_authority",
+      "nearest_rel_vel",
+      "tca_nearest",
+      "a_grav",
+      "closing_speed_portal",
+      "dphi_dt",
+      "eccentricity_vec",
+      "orbital_energy"
+    ],
+    [
+      "fuel_fraction",
+      "craft_vel",
+      "body_count",
+      "a_grav_magdir",
+      "portal_rel_pos",
+      "potential",
+      "speed",
+      "nearest_body",
+      "tca_nearest",
+      "bearing_error",
+      "dphi_dt",
+      "control_authority",
+      "a_grav",
+      "nearest_rel_vel",
+      "closing_speed_portal",
+      "orbital_energy",
+      "time_fraction",
+      "eccentricity_vec",
+      "angular_momentum",
+      "perbody_topk",
+      "craft_mass"
+    ],
+    [
+      "fuel_fraction",
+      "craft_vel",
+      "craft_mass",
+      "angular_momentum",
+      "control_authority",
+      "bearing_error",
+      "a_grav",
+      "eccentricity_vec",
+      "orbital_energy",
+      "potential",
+      "a_grav_magdir",
+      "dphi_dt",
+      "tca_nearest",
+      "portal_rel_pos",
+      "nearest_rel_vel",
+      "body_count",
+      "time_fraction",
+      "perbody_topk",
+      "closing_speed_portal",
+      "speed",
+      "nearest_body"
+    ]
+  ],
+  "stability": {
+    "pairs": 3,
+    "min_spearman": 0.287,
+    "mean_spearman": 0.2996,
+    "stable": false
+  },
+  "stability_portal_dist": {
+    "pairs": 3,
+    "min_spearman": 0.7727,
+    "mean_spearman": 0.8087,
+    "stable": true
+  },
+  "stability_verdict": {
+    "per_repeat": [
+      {
+        "portal_rel_pos": "unnecessary",
+        "craft_vel": "necessary",
+        "speed": "unnecessary",
+        "closing_speed_portal": "unnecessary",
+        "bearing_error": "unnecessary",
+        "a_grav": "unnecessary",
+        "a_grav_magdir": "unnecessary",
+        "potential": "unnecessary",
+        "nearest_body": "unnecessary",
+        "tca_nearest": "unnecessary",
+        "nearest_rel_vel": "unnecessary",
+        "dphi_dt": "unnecessary",
+        "body_count": "unnecessary",
+        "perbody_topk": "unnecessary",
+        "fuel_fraction": "necessary",
+        "craft_mass": "marginal",
+        "control_authority": "unnecessary",
+        "time_fraction": "unnecessary",
+        "orbital_energy": "unnecessary",
+        "angular_momentum": "marginal",
+        "eccentricity_vec": "unnecessary"
+      },
+      {
+        "portal_rel_pos": "unnecessary",
+        "craft_vel": "necessary",
+        "speed": "unnecessary",
+        "closing_speed_portal": "unnecessary",
+        "bearing_error": "unnecessary",
+        "a_grav": "unnecessary",
+        "a_grav_magdir": "unnecessary",
+        "potential": "unnecessary",
+        "nearest_body": "unnecessary",
+        "tca_nearest": "unnecessary",
+        "nearest_rel_vel": "unnecessary",
+        "dphi_dt": "unnecessary",
+        "body_count": "marginal",
+        "perbody_topk": "unnecessary",
+        "fuel_fraction": "necessary",
+        "craft_mass": "unnecessary",
+        "control_authority": "unnecessary",
+        "time_fraction": "unnecessary",
+        "orbital_energy": "unnecessary",
+        "angular_momentum": "unnecessary",
+        "eccentricity_vec": "unnecessary"
+      },
+      {
+        "portal_rel_pos": "unnecessary",
+        "craft_vel": "necessary",
+        "speed": "unnecessary",
+        "closing_speed_portal": "unnecessary",
+        "bearing_error": "marginal",
+        "a_grav": "marginal",
+        "a_grav_magdir": "unnecessary",
+        "potential": "unnecessary",
+        "nearest_body": "unnecessary",
+        "tca_nearest": "unnecessary",
+        "nearest_rel_vel": "unnecessary",
+        "dphi_dt": "unnecessary",
+        "body_count": "unnecessary",
+        "perbody_topk": "unnecessary",
+        "fuel_fraction": "necessary",
+        "craft_mass": "marginal",
+        "control_authority": "marginal",
+        "time_fraction": "unnecessary",
+        "orbital_energy": "marginal",
+        "angular_momentum": "marginal",
+        "eccentricity_vec": "marginal"
+      }
+    ],
+    "n_groups": 21,
+    "n_stable": 13,
+    "fraction_stable": 0.619,
+    "unstable_groups": [
+      "a_grav",
+      "angular_momentum",
+      "bearing_error",
+      "body_count",
+      "control_authority",
+      "craft_mass",
+      "eccentricity_vec",
+      "orbital_energy"
+    ],
+    "stable": false
+  },
+  "stability_top3": {
+    "k": 3,
+    "identical": false,
+    "intersection": [
+      "craft_vel",
+      "fuel_fraction"
+    ],
+    "per_repeat": [
+      [
+        "craft_mass",
+        "craft_vel",
+        "fuel_fraction"
+      ],
+      [
+        "body_count",
+        "craft_vel",
+        "fuel_fraction"
+      ],
+      [
+        "craft_mass",
+        "craft_vel",
+        "fuel_fraction"
+      ]
+    ]
+  },
+  "measured_vs_predicted": {
+    "portal_rel_pos": {
+      "predicted": "necessary",
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "craft_vel": {
+      "predicted": "necessary",
+      "measured": "necessary",
+      "agrees": true
+    },
+    "speed": {
+      "predicted": "marginal",
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "closing_speed_portal": {
+      "predicted": "unnecessary",
+      "measured": "unnecessary",
+      "agrees": true
+    },
+    "bearing_error": {
+      "predicted": null,
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "a_grav": {
+      "predicted": "necessary",
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "a_grav_magdir": {
+      "predicted": "unnecessary",
+      "measured": "unnecessary",
+      "agrees": true
+    },
+    "potential": {
+      "predicted": "marginal",
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "nearest_body": {
+      "predicted": null,
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "tca_nearest": {
+      "predicted": null,
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "nearest_rel_vel": {
+      "predicted": null,
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "dphi_dt": {
+      "predicted": null,
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "body_count": {
+      "predicted": null,
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "perbody_topk": {
+      "predicted": null,
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "fuel_fraction": {
+      "predicted": "necessary",
+      "measured": "necessary",
+      "agrees": true
+    },
+    "craft_mass": {
+      "predicted": "unnecessary",
+      "measured": "marginal",
+      "agrees": false
+    },
+    "control_authority": {
+      "predicted": "unnecessary",
+      "measured": "unnecessary",
+      "agrees": true
+    },
+    "time_fraction": {
+      "predicted": "necessary",
+      "measured": "unnecessary",
+      "agrees": false
+    },
+    "orbital_energy": {
+      "predicted": "unnecessary",
+      "measured": "unnecessary",
+      "agrees": true
+    },
+    "angular_momentum": {
+      "predicted": "unnecessary",
+      "measured": "marginal",
+      "agrees": false
+    },
+    "eccentricity_vec": {
+      "predicted": "unnecessary",
+      "measured": "unnecessary",
+      "agrees": true
+    }
+  },
+  "warning": null,
+  "m4_nested": null,
+  "resampling_note": "The `verdict` column is computed from the ZEROED arm alone (classify() in controller/necessity.py). `corroborated_by_resampling` cross-checks it against the in-distribution resampled arm. Where it is false, the verdict is out-of-distribution shock rather than evidence the policy uses the group."
+}

@@ -1,0 +1,33 @@
+{
+  "_comment": "TWELVE fixed planet layouts, not five. A generation dispatches 8 DISTINCT keys (plan.md 7.1) so the demo grid shows eight visibly different worlds while every one stays exactly replayable. Layouts must differ in CHARACTER, not just coordinates - eight near-identical fields teach the policy nothing and look like a bug on screen.",
+
+  "key_shape": {"layout_id": "int 0..11"},
+
+  "dispatch": {
+    "per_generation": 8,
+    "rule": "sample 8 distinct layout_ids from `train` without replacement each generation",
+    "note": "8 of the 10 training layouts per generation, so the batch rotates and no layout is memorised."
+  },
+
+  "layout_intent": {
+    "0": "planet straddling the direct craft-to-portal path - forces a detour",
+    "1": "mass concentration off to one side - tempts a slingshot",
+    "2": "two small planets flanking the approach corridor - narrow gate",
+    "3": "one heavy planet close to the star - steep combined well",
+    "4": "three light planets scattered wide - weak field, mostly navigation",
+    "5": "planet directly behind the portal - overshoot is punished hard",
+    "6": "two planets in line, corridor between them - threading required",
+    "7": "heavy planet on the far side - a slingshot is the efficient route",
+    "8": "near-empty field - tests that the policy does not over-avoid",
+    "9": "dense cluster on one flank - large detour or a careful pass",
+    "10": "HELD OUT - asymmetric pair, unseen geometry",
+    "11": "HELD OUT - heavy planet adjacent to the portal, tests the A7 speed gate under pull"
+  },
+
+  "train": [
+    {"layout_id": 0}, {"layout_id": 1}, {"layout_id": 2}, {"layout_id": 3},
+    {"layout_id": 4}, {"layout_id": 5}, {"layout_id": 6}, {"layout_id": 7},
+    {"layout_id": 8}, {"layout_id": 9}
+  ],
+  "eval_held_out": [{"layout_id": 10}, {"layout_id": 11}]
+}

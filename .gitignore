@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# scratch: checkpoints and logs mid-run.
+# Stage results under stages/*/results/ ARE committed - they are the research output.
+runs/

@@ -1,0 +1,64 @@
+{
+  "stage": "A",
+  "champion": {
+    "version": 100,
+    "generation": 100,
+    "score": 0.875,
+    "kind": "heldout",
+    "obs_spec_hash": "16a7d04e",
+    "stage": "A"
+  },
+  "eval_sets": {
+    "eval_held_out": [
+      {}
+    ]
+  },
+  "episodes_per_mode": 48,
+  "by_set": {
+    "eval_held_out": {
+      "sampled": {
+        "n": 48,
+        "success_rate": 0.7708,
+        "mean_reward": 102.0918,
+        "mean_min_portal_dist": 0.3608,
+        "terminations": {
+          "portal": 37,
+          "timeout": 11
+        },
+        "failed": 0
+      },
+      "greedy": {
+        "n": 48,
+        "success_rate": 0.0,
+        "mean_reward": -56.8792,
+        "mean_min_portal_dist": 1.3009,
+        "terminations": {
+          "escape": 48
+        },
+        "failed": 0
+      }
+    }
+  },
+  "sampled": {
+    "n": 48,
+    "success_rate": 0.7708,
+    "mean_reward": 102.0918,
+    "mean_min_portal_dist": 0.3608,
+    "terminations": {
+      "portal": 37,
+      "timeout": 11
+    },
+    "failed": 0
+  },
+  "greedy": {
+    "n": 48,
+    "success_rate": 0.0,
+    "mean_reward": -56.8792,
+    "mean_min_portal_dist": 1.3009,
+    "terminations": {
+      "escape": 48
+    },
+    "failed": 0
+  },
+  "primary_set": "eval_held_out"
+}

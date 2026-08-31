@@ -1,0 +1,33 @@
+# Controller-side trainer only (build-order step A8, plan.md 3.6).
+# Install on top of requirements.txt:  pip install -r requirements-train.txt
+#
+# ---------------------------------------------------------------------------
+# THIS WILL NOT INSTALL ON THIS DEV MACHINE.
+#
+# It is an Intel Mac (darwin x86_64, i9-9980HK). PyTorch's last macOS x86_64
+# release is 2.2.2, which supports Python 3.8-3.11 only; the project venv is
+# Python 3.13. There is no wheel at that intersection, so `pip install torch`
+# fails with "No matching distribution found".
+#
+# Three ways out, in order of preference:
+#
+#   1. Write the REINFORCE update in numpy.  The policy is a 2-layer tanh MLP
+#      with a categorical head (~10k parameters) and the gradient of
+#      -(A * log pi) - beta*H is a few lines of hand-written backprop. This
+#      removes the dependency entirely AND drops ~200MB from the Daytona
+#      snapshot, which directly improves sandbox start latency (plan.md 4.6).
+#      Recommended.
+#
+#   2. A second venv on Python 3.11 x86_64 with torch==2.2.2, used only to run
+#      controller/train.py. Keeps torch, costs a split environment.
+#
+#   3. Run the trainer inside a Daytona sandbox too (Debian linux, torch
+#      installs normally) and pull the updated weights back.
+#
+# The WORKER is unaffected either way: it runs inside the Debian snapshot, and
+# it only needs to do a forward pass, which numpy does fine.
+# ---------------------------------------------------------------------------
+
+# CPU wheels are enough - a ~10k parameter MLP does not need a GPU:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.4 ; platform_machine != "x86_64" or sys_platform != "darwin"

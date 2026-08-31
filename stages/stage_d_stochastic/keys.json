@@ -1,0 +1,90 @@
+{
+  "_comment": "Stage D keys are a single integer: {\"seed_universe\": s}. Training seeds are drawn FRESH every generation from [1, 800000); the eval seeds below live in a disjoint block at 900000+, so a training draw can never collide with an eval world. That disjointness is what makes the generalisation gap meaningful - it is the first rung where train and held-out are different WORLDS rather than different keys into the same fixed set.",
+  "key_shape": {
+    "seed_universe": "int; the whole universe is a pure function of it"
+  },
+  "dispatch": {
+    "per_generation": 8,
+    "rule": "sample 8 distinct fresh seeds from [1, 800000) every generation",
+    "note": "This is the first rung where the fleet's DIVERSITY argument applies (plan.md 5.3): through A-C the eight sandboxes justify themselves on throughput and gradient variance alone, because only action sampling varied. Here each sandbox is genuinely a different universe."
+  },
+  "train": [
+    {
+      "seed_universe": "sampled"
+    }
+  ],
+  "eval_held_out": [
+    {
+      "seed_universe": 900000
+    },
+    {
+      "seed_universe": 900001
+    },
+    {
+      "seed_universe": 900002
+    },
+    {
+      "seed_universe": 900003
+    },
+    {
+      "seed_universe": 900004
+    },
+    {
+      "seed_universe": 900005
+    },
+    {
+      "seed_universe": 900006
+    },
+    {
+      "seed_universe": 900007
+    },
+    {
+      "seed_universe": 900008
+    },
+    {
+      "seed_universe": 900009
+    },
+    {
+      "seed_universe": 900010
+    },
+    {
+      "seed_universe": 900011
+    },
+    {
+      "seed_universe": 900012
+    },
+    {
+      "seed_universe": 900013
+    },
+    {
+      "seed_universe": 900014
+    },
+    {
+      "seed_universe": 900015
+    },
+    {
+      "seed_universe": 900016
+    },
+    {
+      "seed_universe": 900017
+    },
+    {
+      "seed_universe": 900018
+    },
+    {
+      "seed_universe": 900019
+    },
+    {
+      "seed_universe": 900020
+    },
+    {
+      "seed_universe": 900021
+    },
+    {
+      "seed_universe": 900022
+    },
+    {
+      "seed_universe": 900023
+    }
+  ]
+}

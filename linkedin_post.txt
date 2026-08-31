@@ -1,0 +1,41 @@
+We built a spacecraft that can navigate eight parallel universes at once.
+
+We could not upload one video to YouTube.
+
+First prize was RIGHT THERE. It was ours. It was so ours. And it was defeated by a progress bar.
+
+Anyway — here's what we made at the Daytona HackSprint London, hosted by Outpost Crew.
+
+I'm a theoretical physicist and a mathematician at heart, and a programmer by choice. That is a fancy way of saying I will happily spend a hackathon deriving something instead of sleeping.
+
+We built Gravity Gauntlet: a reinforcement learning agent that learns to fly a spacecraft through a live gravitational field to its target without smashing into a planet.
+
+The idea underneath it is the bit I actually love:
+
+How does randomness come out of many perfectly deterministic universes?
+
+One N-body system is deterministic. Masses, positions, velocities in — the entire future out, exactly, every time. But an agent raised in ONE such universe hasn't learned physics. It has memorised a commute.
+
+So we didn't add noise. We ran eight different deterministic universes in parallel, every training generation. Each one exactly reproducible from its key. Each one a genuinely different world. The stochasticity isn't injected — it IS the ensemble. Deterministic per instance, stochastic across the population. Determinism, in bulk, becomes weather.
+
+Real physics, no shortcuts:
+→ Softened Newtonian gravity, F = GMm/r², with an ε so nothing divides by zero at 3am
+→ Velocity-Verlet symplectic integration, energy drift 1.4e-5
+→ Kepler ellipses via Newton iteration
+→ Capture requires the right position AND the right speed
+
+That last one produced my favourite bug of the weekend. The agent scored 0.00. Zero. Nothing. I was ready to delete the repo and become a farmer.
+
+Then I instrumented it: 41 out of 48 runs were arriving INSIDE the capture zone and being rejected for arriving too fast. It had solved navigation perfectly. It was simply flying at the target like it owed it money, because my reward paid for getting closer and said absolutely nothing about slowing down. It learned exactly what I asked. That's the horror of RL.
+
+One braking term later: 0.00 → 0.83 on unseen orbital phases, 0.96 on unseen layouts.
+
+Every rollout ran in a real Daytona sandbox, 8 in parallel. A training generation is, literally, eight universes computing at the same time.
+
+Next: stop fixing the constants and start LEARNING them. Treat G, the masses and the thrust budget as the search space and ask which physics gives the best rocket trajectory. (Einstein remains out of scope. Einstein knows what he did.)
+
+Huge thanks to Outpost Crew and Daytona for the sprint and the compute.
+
+Lesson learned: you can conquer gravity in a weekend, but never, ever leave the video upload until the last ten minutes.
+
+#Hackathon #ReinforcementLearning #Physics #MachineLearning #Daytona

@@ -1,0 +1,23 @@
+# --- core: Daytona execution (stage 00 onward) -------------------------------
+daytona==0.207.0
+python-dotenv==1.2.2
+
+# --- physics + policy (stage A onward) ---------------------------------------
+# gg/physics.py, gg/universe.py and gg/obs.py all import numpy - without it the
+# gg package does not import at all.
+numpy>=2.0
+
+# NOTE: torch is NOT here on purpose - see requirements-train.txt.
+# This dev machine is an Intel Mac (darwin x86_64); PyTorch's last macOS x86_64
+# release is 2.2.2, which does not support Python 3.13, so `pip install torch`
+# cannot succeed locally. Everything through build-order step A7 (physics, the
+# worker, the snapshot, the fan-out, the API) runs on numpy alone. The Daytona
+# snapshot is Debian linux, where torch installs normally.
+
+# --- demo API + live sandbox lifecycle events (stage A, step A7) --------------
+fastapi>=0.115
+uvicorn[standard]>=0.30
+sse-starlette>=2.1
+
+# --- tests (stage A, gate 1) --------------------------------------------------
+pytest>=8.0

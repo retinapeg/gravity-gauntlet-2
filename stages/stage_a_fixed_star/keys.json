@@ -1,0 +1,7 @@
+{
+  "_comment": "Stage A has exactly one universe, so train and eval are the same key. The split is trivial BY DESIGN - the generalisation gap only becomes a meaningful number at Stage D (plan.md 8). Variation across the 8 sandboxes in a generation comes from action sampling alone (S4), which is still enough to lower gradient variance.",
+
+  "key_shape": {},
+  "train": [{}],
+  "eval_held_out": [{}]
+}
